@@ -19,7 +19,7 @@ public class Main {
         System.out.println("Cell E1: " + sheet.eval(4, 0)); // Should print 84.0
 
         // Evaluate all cells
-        System.out.println("\nSpreadsheet Evaluation:");
+        System.out.println("\nSpreadsheet Evaluation: ");
         String[][] evaluatedSheet = sheet.evalAll();
         for (int i = 0; i < sheet.height(); i++) {
             for (int j = 0; j < sheet.width(); j++) {
