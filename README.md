@@ -138,9 +138,5 @@ public class Main {
         }
     }
 }
-
-
-![image](https://github.com/user-attachments/assets/8b37b717-a927-4fd0-ab57-206c9c23514a)
-
-
+![image](https://github.com/user-attachments/assets/3586f552-1be1-440f-b90c-a5b327756f7f)
 
