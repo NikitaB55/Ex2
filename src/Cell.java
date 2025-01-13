@@ -32,9 +32,18 @@ public class Cell {
     }
 
     private boolean isValidFormula(String formula) {
-        // Basic validation: Ensure formula only contains numbers, operators, and parentheses
-        return formula.matches("[0-9+\-*/().]+$");
+        if (!formula.matches("[0-9+\\-*/().]+$")) return false;
+        // Check for balanced parentheses
+        int balance = 0;
+        for (char c : formula.toCharArray()) {
+            if (c == '(') balance++;
+            if (c == ')') balance--;
+            if (balance < 0) return false; // Closing parenthesis before opening
+        }
+        return balance == 0; // Ensure all parentheses are balanced
     }
+
+
 
     public Double computeForm(String form) {
         if (!isForm(form)) return null;
