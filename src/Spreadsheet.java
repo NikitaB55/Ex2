@@ -28,7 +28,7 @@ public class Spreadsheet {
 
     public int xCell(String c) {
         int column = 0;
-        for (int i = 0; i < c.length() && Character.isLetter(c.charAt(i)); i++) {
+        for (int i = 0; i < c.length(); i++) {
             column = column * 26 + (c.charAt(i) - 'A' + 1);
         }
         return column - 1;
@@ -52,7 +52,7 @@ public class Spreadsheet {
         } else if (cell.isText(content)) {
             return content;
         } else if (cell.isForm(content)) {
-            Double result = cell.computeForm(content);
+            Double result = cell.computeForm(content, this); // Pass spreadsheet instance to resolve references
             return result == null ? "ERROR" : result.toString();
         }
         return "";
@@ -84,8 +84,7 @@ public class Spreadsheet {
         if (cell.isNumber(content) || cell.isText(content)) {
             return 0;
         } else if (cell.isForm(content)) {
-            // Simplified dependency handling for now
-            return 1; // Assuming no complex dependencies yet
+            return 1; // Simplified dependency handling
         }
         return -1; // ERROR or unknown type
     }
